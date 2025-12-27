@@ -1,0 +1,48 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# =========================
+# Data files (generated)
+# =========================
+data/raw/
+data/processed/
+
+# Keep sample data if needed
+!data/samples/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+.vscode/
+.idea/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Pytest cache
+# =========================
+.pytest_cache/
+
+# =========================
+# Environment variables
+# =========================
+.env
