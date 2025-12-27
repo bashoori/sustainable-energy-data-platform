@@ -38,7 +38,7 @@ The system is intentionally designed to mirror real-world SaaS data platforms, h
 
 ## Repository Structure
 
-
+```
 ├── .devcontainer/ # Reproducible GitHub Codespaces environment
 ├── ingestion/ # Data acquisition and ingestion scripts
 ├── transformation/python/ # Data transformation and normalization logic
@@ -51,7 +51,7 @@ The system is intentionally designed to mirror real-world SaaS data platforms, h
 ├── data/ # Local data lake (raw / processed)
 ├── requirements.txt # Python dependencies
 └── README.md
-
+```
 
 ---
 
