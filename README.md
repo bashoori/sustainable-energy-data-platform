@@ -1,37 +1,138 @@
 # Sustainable Energy Data Ingestion & Analytics Platform
 
 ## Overview
-This project demonstrates the design and implementation of a cloud-based data ingestion and analytics platform focused on energy sustainability and the Green Economy. The system ingests data from diverse sources including government open data portals, third-party APIs, CSV database exports, and PDF-based public reports.
+This repository demonstrates a production-style data engineering platform designed to ingest, transform, and validate sustainability and energy-related datasets from diverse external sources. The project focuses on building reliable, SQL-centric data pipelines that support analytics and product-driven decision-making in the context of the Green Economy and energy sustainability.
 
-The platform is designed to support reliable analytics, database-driven product features, and data quality validation using AWS, SQL, and Python.
+The system is intentionally designed to mirror real-world SaaS data platforms, handling messy external data while enforcing data quality, schema consistency, and reproducible environments.
 
-## Key Objectives
-- Lead acquisition, ingestion, and transformation of strategic energy data sources
-- Design SQL-centric database schemas for analytics and reporting
-- Implement scalable and maintainable data pipelines
-- Enforce automated data quality validation
-- Support evolving product requirements with flexible data models
+---
 
-## Data Sources
-- Government open data APIs (energy production, emissions)
-- Periodic CSV exports from external databases
-- Public sustainability reports in PDF format
+## Key Capabilities
+- Acquisition and ingestion of data from:
+  - Government open data APIs
+  - Third-party data providers
+  - CSV database exports
+  - Public PDF reports
+- SQL-focused data modeling and transformation
+- Automated data quality validation and testing
+- AWS-style data lake architecture (simulated locally)
+- Fully reproducible development environment using GitHub Codespaces
 
-## Architecture
-- Raw data ingestion into AWS S3
-- SQL-based transformation and modeling
-- Analytical queries for sustainability metrics
-- Automated data quality checks integrated into pipelines
+---
 
-## Tech Stack
-- AWS: S3, Redshift (logical), Lambda (conceptual)
-- Languages: Python, SQL
-- Analytics: Pandas, NumPy
-- Testing: Python unit tests for data quality
-- Version Control: Git
+## Architecture (High-Level)
 
-## Project Structure
-See repository folders for ingestion, transformation, analytics, and testing layers.
+External Data Sources
+├── APIs
+├── CSV Exports
+└── PDF Reports
+↓
+Ingestion Layer (Python)
+↓
+Raw Storage (data/raw/)
+↓
+Transformation Layer (Python / SQL logic)
+↓
+Processed Data (data/processed/)
+↓
+Automated Tests (Data Quality & Schema Validation)
 
-## Why This Project Matters
-This project reflects real-world database engineering challenges: messy data, evolving requirements, and the need for trustworthy analytics. It aligns with sustainability-focused products and demonstrates independent ownership of data pipelines end to end.
+yaml
+Copy code
+
+---
+
+## Repository Structure
+
+.
+├── .devcontainer/ # GitHub Codespaces configuration (reproducible environment)
+├── ingestion/ # Data acquisition and ingestion scripts
+├── transformation/python/ # Data transformation and normalization logic
+├── tests/ # Automated data quality and schema tests
+├── data/ # Local data lake (raw / processed)
+├── requirements.txt # Python dependencies
+└── README.md
+
+yaml
+Copy code
+
+---
+
+## Technology Stack
+- **Languages:** Python, SQL
+- **Data Processing:** Pandas
+- **Storage Format:** Parquet
+- **Testing:** Pytest (data quality & schema validation)
+- **Cloud Concepts:** AWS S3-style partitioned storage
+- **Environment:** GitHub Codespaces, Dev Containers
+- **Version Control:** Git, GitHub
+
+---
+
+## Running the Project (GitHub Codespaces)
+
+This project is configured to run out-of-the-box in GitHub Codespaces.
+
+1. Open the repository on GitHub  
+2. Click **Code → Codespaces → Create codespace on main**
+3. Wait for the environment to build automatically
+
+Dependencies are installed automatically via `.devcontainer`.
+
+---
+
+## Running Locally (Optional)
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install fastparquet
+Run Automated Tests
+bash
+Copy code
+pytest -q
+These tests validate:
+
+Required schema fields
+
+Detection of invalid or unexpected values
+
+Basic data quality guarantees
+
+Run Data Transformation Pipeline
+bash
+Copy code
+python transformation/python/transform_data.py \
+  --dataset energy_metrics \
+  --data-dir data
+This will:
+
+Load the latest raw dataset
+
+Normalize schema and data types
+
+Deduplicate records
+
+Write analytics-ready output to data/processed/
+
+Why This Project Matters
+This project demonstrates hands-on experience with:
+
+Designing and implementing data pipelines
+
+Leading data ingestion from unreliable external sources
+
+Applying data quality validation and automated testing
+
+Working independently with minimal supervision
+
+Building data systems that support sustainability-focused products
+
+It reflects real-world database and data engineering challenges rather than toy examples.
+
+Author
+Bita Ashoori
+Database / Data Engineer
+Vancouver, BC
+
